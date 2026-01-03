@@ -1,1 +1,22 @@
-#
+# Sync Policy
+==============
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/amuthakrishna/learn_argocd.git'
+    targetRevision: main   # Branch
+    path: nginx
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: prod
+  syncPolicy:
+    automated:
+      prune: true        # optional: delete resources removed from Git
+      selfHeal: true     # optional: fix drifted resources automatically
+    syncOptions:
+      - CreateNamespace=true  # optional: auto-create namespace if not exists
