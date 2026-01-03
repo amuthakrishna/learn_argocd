@@ -4,3 +4,4 @@ releases:
     chart: .
     values:
       - values.yaml
+      - replicas: 5
