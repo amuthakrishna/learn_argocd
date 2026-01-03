@@ -1,0 +1,16 @@
+app:
+  name: myapp
+  image: nginx
+  version: latest
+  port: 80
+  replicas: 2
+
+service:
+  type: NodePort
+  port: 80
+  nodeport: 30080
+httpRoute:
+  enabled: false
+
+ingress:
+  enabled: false
