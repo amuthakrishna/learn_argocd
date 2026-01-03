@@ -3,7 +3,7 @@ app:
   image: nginx
   version: latest
   port: 80
-  replicas: 1
+  replicas: 2
 
 service:
   type: NodePort
